@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>GitHub Repositories Viewer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-wjG57dbB+aEfL/8GCQVeIZ1wCFMuhEw0dP9GF+4ZOh02U9jKKQ4Z1T++4R8mmzoF" crossorigin="anonymous">
+    <!-- Add the style for the loader -->
+    <style>
+        .loader {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="text-center mt-5 mb-0">
+            <h4 class=" mt-5 pt-5">GitHub Repositories Viewer</h4>
+            <label for="username">Enter GitHub Username:</label>
+        </div>
+        <div class="input-container">
+            <input type="text" id="username" placeholder="Enter GitHub username" class=" mt-5">
+            <button onclick="getRepositories()" class=" mt-5">Get Repositories</button>
+            <!-- Add the loader div -->
+            <div id="loader" class="loader" style="display: none;"></div>
+        </div>
+        <div id="profile-container" class="profile-container"></div>
+        <div id="repositories" class="repositories-container ml-5"></div>
+        <div id="pagination" class="pagination-container"></div>
+        <div id="btns"></div>
+        <button type="button" class="btn" onclick="goToTop()">Back</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function goToTop() {
+            window.scrollTo({
+                top: document.getElementById('username').offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
